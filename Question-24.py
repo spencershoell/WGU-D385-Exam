@@ -3,10 +3,10 @@ import stat
 
 def admin(filename, admin):
     return admin
-    
+
 def user(filename, user):
-    return user    
-    
+    return user
+
 def grant_permission(name_list, filename):
     # FIXME
     os.chmod(filename, stat.S_IRWXU)
@@ -28,10 +28,10 @@ def check_permission(filename):
     print("Check if path can be executed:", path4)
 
     if os.access(filename, os.R_OK):
-    	# open txt file as file
-    	with open(filename) as file:
-    		file.read()
-    else:		
+        # open txt file as file
+        with open(filename) as file:
+            file.read()
+    else:
         # in case can't access the file	
         print("Cannot access the file")
 
@@ -49,12 +49,12 @@ if __name__ == '__main__':
         for line in f:
             fields = line.split()
             k.append(fields[0])
-            
+
         for lineNum in range(len(k)):
             if name in k[lineNum]:
                 result = True
-                name_result = name
-                
+                name_result = name + " is an admin"
+
         if result:
             admin(filename, name)
         else:
