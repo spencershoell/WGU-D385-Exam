@@ -25,4 +25,6 @@ if __name__ == '__main__':
     user = User(name, email)
     
     # FIXME:  Here is where you want to use the template class
-    print(f"The secret is {user.__init__.__globals__['CONFIG']['API_KEY']}")
+    template = Template("Hello, my name is $name.")
+
+    print(f"{template.substitute(name=user.name)}")

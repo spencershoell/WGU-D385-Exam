@@ -7,9 +7,12 @@ def admin(filename, admin):
 def user(filename, user):
     return user
 
-def grant_permission(name_list, filename):
+def grant_permission(isAdmin, filename):
     # FIXME
-    os.chmod(filename, stat.S_IRWXU)
+    if isAdmin:
+        os.chmod(filename, 0o0700)
+    else:
+        os.chmod(filename, 0o0400)
 
     check_permission(filename)
 
@@ -60,4 +63,4 @@ if __name__ == '__main__':
         else:
             user(filename, name)
 
-    grant_permission(k, filename)
+    grant_permission(result, filename)

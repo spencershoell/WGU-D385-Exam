@@ -7,3 +7,7 @@ if __name__ == '__main__':
     num = int(input())
     
     # create conditional statement for range check here
+    if(num in r):
+        print(f'The number input is in the range from 1 to 10.')
+    else:
+        print(f'The number input is not in the range from 1 to 10.')

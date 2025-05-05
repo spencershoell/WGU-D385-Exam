@@ -14,6 +14,7 @@ class AESCipher(object):
         counter = Counter.new(self.block_size * 8)
         cipher = AES.new(self.key, AES.MODE_CTR, counter=counter)
         #FIX ME: encrypted_text = ?
+        encrypted_text = cipher.encrypt(plain_text.encode("utf-8"))
         return b64encode(encrypted_text).decode("utf-8")
  
     def __pad(self, plain_text):

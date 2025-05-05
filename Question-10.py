@@ -15,7 +15,7 @@ class Limiter:
       
       # Finish line 18 by writing an expression that determines the value of the bucket
       # Use the following variables in your expression: time_passed, self.bucket, self.rate, and self.per 
-      bucket = # Insert your expression here
+      bucket = (self.per * (time_passed / self.rate)) + self.bucket
       
       if (bucket > self.rate):
           self.bucket = self.rate
